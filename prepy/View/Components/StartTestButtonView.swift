@@ -8,10 +8,11 @@
 import SwiftUI
 
 struct StartTestButton: View {
+    var action: (() -> Void)?
+    
     var body: some View {
         Button(action: {
-            // Action for starting the mock test
-            print("Start Full Mock Test tapped")
+            action?()
         }) {
             HStack(spacing: 12) {
                 Image(systemName: "play.circle.fill")

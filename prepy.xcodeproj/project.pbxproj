@@ -6,6 +6,10 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		62C8302B2F3CB42C00A690A8 /* Supabase in Frameworks */ = {isa = PBXBuildFile; productRef = 62C82E772F3A0D4B00A690A8 /* Supabase */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFileReference section */
 		62C82E682F3A0D4800A690A8 /* prepy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = prepy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -23,6 +27,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				62C8302B2F3CB42C00A690A8 /* Supabase in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -65,6 +70,7 @@
 			);
 			name = prepy;
 			packageProductDependencies = (
+				62C82E772F3A0D4B00A690A8 /* Supabase */,
 			);
 			productName = prepy;
 			productReference = 62C82E682F3A0D4800A690A8 /* prepy.app */;
@@ -94,6 +100,9 @@
 			);
 			mainGroup = 62C82E5F2F3A0D4800A690A8;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				62C82E762F3A0D4B00A690A8 /* XCRemoteSwiftPackageReference "supabase-swift" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 62C82E692F3A0D4800A690A8 /* Products */;
 			projectDirPath = "";
@@ -256,6 +265,7 @@
 				DEVELOPMENT_TEAM = 78SK5N87ST;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Prepy needs microphone access for Speaking practice and real-time voice visualization.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -288,6 +298,7 @@
 				DEVELOPMENT_TEAM = 78SK5N87ST;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Prepy needs microphone access for Speaking practice and real-time voice visualization.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -332,6 +343,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		62C82E762F3A0D4B00A690A8 /* XCRemoteSwiftPackageReference "supabase-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/supabase/supabase-swift";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		62C82E772F3A0D4B00A690A8 /* Supabase */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 62C82E762F3A0D4B00A690A8 /* XCRemoteSwiftPackageReference "supabase-swift" */;
+			productName = Supabase;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 62C82E602F3A0D4800A690A8 /* Project object */;
 }

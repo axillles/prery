@@ -34,9 +34,9 @@ struct PassageHeader: View {
             
             Spacer()
             
-            // Timer
+            // Timer (stopwatch icon)
             HStack(spacing: 8) {
-                Image(systemName: "flame.fill")
+                Image(systemName: "clock.fill")
                     .font(.system(size: 18))
                     .foregroundColor(.orange)
                 

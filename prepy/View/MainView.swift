@@ -20,6 +20,7 @@ struct MainView: View {
     @State private var speakingScore: Double = 6.5
     
     @State private var showSettings = false
+    @State private var showExam = false
     
     var body: some View {
         ZStack {
@@ -58,9 +59,11 @@ struct MainView: View {
                     .padding(.horizontal, 20)
                     
                     // Start test button
-                    StartTestButton()
-                        .padding(.horizontal, 20)
-                        .padding(.bottom, 32)
+                    StartTestButton {
+                        showExam = true
+                    }
+                    .padding(.horizontal, 20)
+                    .padding(.bottom, 32)
                 }
                 .padding(.top, 20)
             }
@@ -81,6 +84,9 @@ struct MainView: View {
             Text("Settings")
                 .foregroundColor(.white)
                 .presentationDetents([.medium])
+        }
+        .fullScreenCover(isPresented: $showExam) {
+            TestFlowView()
         }
     }
 }

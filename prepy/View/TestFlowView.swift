@@ -1,0 +1,62 @@
+//
+//  TestFlowView.swift
+//  prepy
+//
+//  Общий поток теста: Listening → Reading → … Единая навигация по этапам.
+//
+
+import SwiftUI
+
+struct TestFlowView: View {
+    @State private var currentStage: TestStage = .listening
+    @State private var isPaused = false
+    @State private var showQuestions = false
+
+    private let backgroundColor = Color(white: 0.08)
+
+    var body: some View {
+        ZStack {
+            backgroundColor.ignoresSafeArea()
+
+            VStack(spacing: 0) {
+                TestStageNavigation(
+                    stages: TestStage.allCases,
+                    currentStage: currentStage,
+                    isPaused: $isPaused,
+                    onStageTapped: { currentStage = $0 }
+                )
+
+                Group {
+                    switch currentStage {
+                    case .listening:
+                        ListeningPracticeScreenView(
+                            showHeader: false,
+                            onSubmitPart1: { currentStage = .reading }
+                        )
+                    case .reading:
+                        ReadingStageView(showQuestions: $showQuestions)
+                    case .writing:
+                        WritingStageView(onFinish: { })
+                    case .speaking:
+                        SpeakingStageScreenView()
+                    }
+                }
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
+            }
+        }
+    }
+
+    private func placeholderStageView(for stage: TestStage) -> some View {
+        VStack {
+            Spacer()
+            Text("\(stage.rawValue) — coming soon")
+                .font(.title2)
+                .foregroundColor(.white)
+            Spacer()
+        }
+    }
+}
+
+#Preview {
+    TestFlowView()
+}

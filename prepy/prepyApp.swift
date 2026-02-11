@@ -9,9 +9,22 @@ import SwiftUI
 
 @main
 struct prepyApp: App {
+    @StateObject private var authState = AuthState()
+
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            Group {
+                if authState.isSignedIn {
+                    MainView()
+                } else {
+                    LoginView(onSuccess: {
+                        authState.setSignedIn(true)
+                    })
+                }
+            }
+            .task {
+                await authState.checkSession()
+            }
         }
     }
 }
