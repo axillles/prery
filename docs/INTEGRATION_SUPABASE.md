@@ -2,6 +2,8 @@
 
 Краткий чеклист: что уже сделано в коде и что нужно сделать вам.
 
+**В каком формате заполнять БД:** см. **`docs/DB_FORMAT.md`** — таблицы, типы полей, форматы JSON (`options`), примеры INSERT для тестов, Reading, Listening и т.д.
+
 ---
 
 ## 1. Что уже в проекте
@@ -69,6 +71,12 @@ loading = false
 let content = try await repo.fetchFullTestContent(testId: selectedTestId)
 // content.test, content.listeningAudio, content.readingPassages, content.writingPrompts, content.speakingPrompts, content.questions
 ```
+
+**Пример: Reading с пассажами и вопросами**
+
+- Пассажи: `let passages = try await repo.fetchReadingPassages(testId: id)` (3 элемента для секций 1–3).
+- Вопросы Reading: `let questions = try await repo.fetchQuestions(testId: id, section: .reading)`.
+- В вопросах для Reading должен быть заполнен `section_part`: `"1"`, `"2"`, `"3"` (соответствует трём секциям). Типы вопросов: `matching`, `short_answer`, `sentence_completion`, `yes_no_not_given`, `fill_blank`, `multiple_choice`. Передайте в `ReadingStageView(passages: passages, questions: questions, ...)`.
 
 **Пример: воспроизведение аудио Listening**
 
